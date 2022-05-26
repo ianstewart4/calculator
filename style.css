@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Digital7';
+    src: url(assets/fonts/Digital7Monoitalic-8xKz.ttf) format('truetype');
+}
+
+* {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.display {
+    border: 1px solid black;
+    height: 100px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background: #c9b6b6;
+    color: rgba(23, 23, 23, 0.909);
+}
+
+.current {
+    display: flex;
+    font-family: 'Digital7', sans-serif;
+    font-size: 4.2rem;
+    justify-content: right;
+    align-items: flex-end;
+    position: relative;
+    right: 10px;
+}
+
+.previous {
+    display: flex;
+    font-family: 'Digital7', sans-serif;
+    font-size: 2rem;
+    justify-content: left;
+    align-items: flex-start;
+    position: relative;
+    left: 10px;
+    top: .2rem;
+}
+
+.calculator {
+    width: 50%;
+    margin: 100px auto;
+    padding: 18px;
+    background: #9d9d9d;
+    color: #333;
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+section.bottomRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+section.topRow,
+section.secondRow,
+section.thirdRow,
+section.fourthRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.topRow>section,
+.secondRow>section,
+.thirdRow>section,
+.bottomRow>section,
+.fourthRow>section {
+    background-color: rgb(238, 238, 236);
+    border: 1px solid black;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+    border-radius: 10px;
+    box-shadow: 2px 3px #464545;
+}
+
+.topRow>section:hover,
+.secondRow>section:hover,
+.thirdRow>section:hover,
+.bottomRow>section:hover,
+.fourthRow>section:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+section {
+    display: grid;
+    gap: 5px;
+}
+
+/* BUTTON STYLES */
+
+section.ac {
+    background-color: #ff2424bc;
+    color: #000000;
+}
+
+section.op {
+    background-color: #505050ef;
+    color: #e0e0e0;
+}
+
+section.num {
+    background-color: #b0ababef;
+    color: #ededed;
+}
+
+section.ac:hover {
+    background-color: #ff242483;
+    color: #000000;
+}
+
+section.op:hover {
+    background-color: #50505083;
+    color: #e0e0e0;
+}
+
+section.num:hover {
+    background-color: #b0abab83;
+    color: #ededed;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
