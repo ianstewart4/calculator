@@ -152,7 +152,11 @@ function addpoint() {
 }
 
 function numDel() {
-    current.innerHTML = current.innerHTML.slice(0, -1);
+    if (current.innerHTML.indexOf(' ') != -1) {
+        // So user can't delete an answer
+    } else {
+        current.innerHTML = current.innerHTML.slice(0, -1);
+    }
 }
 
 function toNeg() {
@@ -163,24 +167,47 @@ function toNeg() {
     };
 }
 
+// If the current number has a space (inserted when the user clicks on the equal button) then the previous number is the current number and can be multiplied by the next number. Fixes bug where the user clicks on the equal button and then clicks on the multiply button again which causes the evaluation to be wrong.
+
 function multiplyNum() {
-    previous.innerHTML += current.innerHTML + '*';
-    current.innerHTML = '';
+    if (current.innerHTML.indexOf(' ') != -1) {
+        previous.innerHTML = current.innerHTML;
+        current.innerHTML = '*';
+    } else {
+        previous.innerHTML += current.innerHTML + '*';
+        current.innerHTML = '';
+    }
 }
 
 function divideNum() {
-    previous.innerHTML += current.innerHTML + '/';
-    current.innerHTML = '';
+    if (current.innerHTML.indexOf(' ') != -1) {
+        previous.innerHTML = current.innerHTML;
+        current.innerHTML = '/';
+    } else {
+        previous.innerHTML += current.innerHTML + '/';
+        current.innerHTML = '';
+    }
+
 }
 
 function minusNum() {
-    previous.innerHTML += current.innerHTML + '-';
-    current.innerHTML = '';
+    if (current.innerHTML.indexOf(' ') != -1) {
+        previous.innerHTML = current.innerHTML;
+        current.innerHTML = '-';
+    } else {
+        previous.innerHTML += current.innerHTML + '-';
+        current.innerHTML = '';
+    }
 }
 
 function plusNum() {
-    previous.innerHTML += current.innerHTML + '+';
-    current.innerHTML = '';
+    if (current.innerHTML.indexOf(' ') != -1) {
+        previous.innerHTML = current.innerHTML;
+        current.innerHTML = '+';
+    } else {
+        previous.innerHTML += current.innerHTML + '+';
+        current.innerHTML = '';
+    }
 }
 
 function equalNum() {
@@ -188,7 +215,7 @@ function equalNum() {
 
     } else {
         previous.innerHTML += current.innerHTML;
-        current.innerHTML = eval(previous.innerHTML);
+        current.innerHTML = Math.round(eval(previous.innerHTML) * 10000000) / 10000000;
         current.innerHTML = ' ' + current.innerHTML;
     }
 }
